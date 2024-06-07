@@ -25,4 +25,26 @@ class Test_functional_tests():
         #login button
         self.driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div/div/div[1]/div[2]/form/button").click()
 
+    def test_sum_displayed(self):
+        BOOK_LIST = ["Crack Imu-Cet Entrance Exam","20 Practice Sets For Ibps Bank Clerk Preliminary Exam","Autobiography Of A Yogi"]
+        sum= 0
+        for i in BOOK_LIST:
+            search_box = self.driver.find_element(By.XPATH,"/html/body/main/div[2]/div[1]/div/div[2]/div/div/div/div/form/input")
+            search_box.clear()
+            time.sleep(2)
+            search_box.send_keys(i)
+            self.driver.find_element(By.XPATH,"/html/body/main/div[2]/div[1]/div/div[2]/div/div/div/div/form/button").click()
+            time.sleep(2)
+            book_element = self.driver.find_element(By.CLASS_NAME, "jsx-313054587")
+            book_element.click()
+            time.sleep(4)
+            price_element = self.driver.find_element(By.XPATH, "//*[contains(@class, 'price')]")
+            print(price_element.text)
+            if "Free" in (price_element.text):
+                sum = sum + 0
+            else:
+                split = ((price_element.text).split(" "))[0][1:]
+                sum = sum + int(split)
+        print(sum)
+
     
