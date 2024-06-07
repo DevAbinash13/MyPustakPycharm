@@ -14,8 +14,15 @@ class Test_functional_tests():
         self.driver.get(constants.URL)
 
     def test_login(self):
-        self.driver.find_element(By.XPATH,"/html/body/main/div[2]/div[1]/div/div[3]/div/div/button").click()   
-        self.driver.find_element(By.XPATH,"//*[@id=':r2:']").send_keys("abinashlucky45@gmail.com")
+        self.driver.find_element(By.XPATH,"/html/body/main/div[2]/div[1]/div/div[3]/div/div/button").click()
+        #email field
+        self.driver.find_element(By.XPATH,"//*[@id=':r2:']").send_keys(constants.EMAIL)
+        #proceed button
+        self.driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div/div/div[1]/div[2]/form/button").click()
+        time.sleep(2)
+        #password field
+        self.driver.find_element(By.XPATH,"//*[@id=':rn:']").send_keys(constants.PASS)
+        #login button
+        self.driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div/div/div[1]/div[2]/form/button").click()
 
-    def test_check(self):
-        pass
+    
