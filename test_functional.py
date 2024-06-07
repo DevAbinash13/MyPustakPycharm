@@ -16,3 +16,6 @@ class Test_functional_tests():
     def test_login(self):
         self.driver.find_element(By.XPATH,"/html/body/main/div[2]/div[1]/div/div[3]/div/div/button").click()   
         self.driver.find_element(By.XPATH,"//*[@id=':r2:']").send_keys("abinashlucky45@gmail.com")
+
+    def test_check(self):
+        pass
