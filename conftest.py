@@ -14,4 +14,3 @@ def test_setup(request):
     driver.maximize_window()
     request.cls.driver = driver
     return driver
-    
