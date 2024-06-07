@@ -3,8 +3,6 @@ from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.edge.service import Service
 
-
-
 @pytest.fixture(scope="class")
 def test_setup(request):
     options = Options()
