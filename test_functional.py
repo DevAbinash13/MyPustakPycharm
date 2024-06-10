@@ -68,8 +68,3 @@ class Test_functional_tests():
         split = ((total_price).split(" "))[1]
         cart_sum = int(split)
         assert cart_sum == sum
-
-
-
-
-    
