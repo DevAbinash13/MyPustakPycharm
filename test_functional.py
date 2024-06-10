@@ -27,7 +27,6 @@ class Test_functional_tests():
         self.driver.find_element(By.XPATH,"//*[@id=':rn:']").send_keys(constants.PASS)
         #login button
         self.driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div/div/div[1]/div[2]/form/button").click()
-        print("done")
 
     def test_sum_displayed(self):
         BOOK_LIST = ["Crack Imu-Cet Entrance Exam","20 Practice Sets For Ibps Bank Clerk Preliminary Exam","Autobiography Of A Yogi"]
