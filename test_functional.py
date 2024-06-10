@@ -6,6 +6,9 @@ from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.edge.service import Service
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import StaleElementReferenceException
 
 @pytest.mark.usefixtures("test_setup")
 class Test_functional_tests():
@@ -29,7 +32,9 @@ class Test_functional_tests():
         BOOK_LIST = ["Crack Imu-Cet Entrance Exam","20 Practice Sets For Ibps Bank Clerk Preliminary Exam","Autobiography Of A Yogi"]
         sum= 0
         for i in BOOK_LIST:
+            time.sleep(4)
             search_box = self.driver.find_element(By.XPATH,"/html/body/main/div[2]/div[1]/div/div[2]/div/div/div/div/form/input")
+            search_box.clear()
             search_box.clear()
             time.sleep(2)
             search_box.send_keys(i)
@@ -39,12 +44,17 @@ class Test_functional_tests():
             book_element.click()
             time.sleep(4)
             price_element = self.driver.find_element(By.XPATH, "//*[contains(@class, 'price')]")
-            print(price_element.text)
             if "Free" in (price_element.text):
                 sum = sum + 0
             else:
                 split = ((price_element.text).split(" "))[0][1:]
                 sum = sum + int(split)
-        print(sum)
+            button = self.driver.find_element(By.XPATH, '//button[@type="button" and @value="Add to Cart"]')
+            if button.text == "Add To Cart":
+                button.click()
+        cart = self.driver.find_element(By.XPATH, "/html/body/main/div[2]/div[1]/div/div[3]/div/span[2]")
+        cart.click()
+
+
 
     
