@@ -2,6 +2,7 @@ from conftest import test_setup
 import pytest
 import constants
 import time
+import os
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 from selenium.webdriver.edge.service import Service
@@ -19,12 +20,12 @@ class Test_functional_tests():
     def test_login(self):
         self.driver.find_element(By.XPATH,"/html/body/main/div[2]/div[1]/div/div[3]/div/div/button").click()
         #email field
-        self.driver.find_element(By.XPATH,"//*[@id=':r2:']").send_keys(constants.EMAIL)
+        self.driver.find_element(By.XPATH,"//*[@id=':r2:']").send_keys(os.getenv("MYPUSTAK_EMAIL"))
         #proceed button
         self.driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div/div/div[1]/div[2]/form/button").click()
         time.sleep(2)
         #password field
-        self.driver.find_element(By.XPATH,"//*[@id=':rn:']").send_keys(constants.PASS)
+        self.driver.find_element(By.XPATH,"//*[@id=':rn:']").send_keys(os.getenv("MYPUSTAK_PASSWORD"))
         #login button
         self.driver.find_element(By.XPATH,"/html/body/div[1]/div[3]/div/div/div[1]/div[2]/form/button").click()
 
