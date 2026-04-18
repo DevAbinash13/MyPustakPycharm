@@ -11,6 +11,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import StaleElementReferenceException
 
+print("new changes")
+
 @pytest.mark.usefixtures("test_setup")
 class Test_functional_tests():
     
