@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.edge.options import Options
 
+print("abcd")
 @pytest.fixture(scope="class")
 def test_setup(request):
     options = Options()
