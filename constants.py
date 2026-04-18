@@ -1,7 +1,3 @@
 URL= "https://mypustak.com"
 EMAIL="abinash.sahoo@qapitol.com"
 PASS="Welcome@1999"
-fix="abcd"
-URL= "https://mypustak.com/abc"
-EMAIL="abinash.sahoo@qapitol.com/yz"
-PASS="Welcome@1999/2000"
